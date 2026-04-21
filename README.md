@@ -1,40 +1,32 @@
-# Green City 🌱
+# **Fazenda Urbana**
 
-> Sistema de gerenciamento de uma fazenda urbana. \
-> Projeto interdisciplinar PIM IV. \
-> Universidade Paulista (UNIP) 2° Semestre 2024.
+**Status:** Em fase de modernização de arquitetura.
 
-[![PIM III](https://img.shields.io/badge/PIM-III-brightgreen)](https://github.com/Projeto-PIM-III/City-Green)
+**Projeto Original (Faculdade):** https://github.com/math20122004/pimIV-Fazenda-Urbana
 
-## INTEGRANTES 𖥶:
+### **📖 Sobre o Projeto**
 
-✹ [Gabriel Contatori](https://github.com/GabrielContatori) \
-✹ [Maria Torres]() \
-✹ [Matheus Rafael](https://github.com/math20122004) \
-✹ [Niuan Souza](https://github.com/NiuanSouza) \
-✹ [Sabrina Vieira](https://github.com/Sabrint) \
-✹ [Victor Hugo](https://github.com/VictorHT2) 
+O **Fazenda Urbana** foi desenvolvido originalmente como um projeto acadêmico focado em gestão de insumos, produção e vendas. Atualmente, estou realizando um **fork** deste repositório com o objetivo de refatorar a estrutura legada e transformá-la em uma aplicação moderna e escalável.
 
-### TÓPICOS ✎ :
+### **🎯 Por que esta refatoração?**
 
-❧ Banco de Dados \
-❧ Código Projeto \
-❧ Diagramas UML \
-❧ Testes \
-❧
+O foco deste projeto no meu portfólio é demonstrar a transição de uma base de código monolítica/desktop (C\#/.NET) para uma arquitetura distribuída, utilizando as tecnologias que compõem meu *stack* principal de desenvolvimento:
 
-### REQUISITOS:
+* **Modernização do Backend:** Migração da lógica de negócio para **Java 21 com Spring Boot**.  
+* **Gestão de Dados:** Reestruturação do banco de dados relacional para otimização de consultas e escalabilidade (utilizando **MySQL/PostgreSQL**).  
+* **Integração:** Conectando interfaces web modernas a serviços de API RESTful robustos.
 
-| TIPO | DESCRIÇÃO | PRIORIDADE |
-| ------ | ------ | ------ |
-| FUNCIONAL | Cadastro, alteração, inativação, consulta, monitoramento e pesquisa dos usuários. | ESSENCIAL |
-| FUNCIONAL | Cadastro, alteração, inativação, consulta, monitoramento e pesquisa dos fornecedores. | IMPORTANTE |
-| FUNCIONAL | Cadastro, alteração, monitoramento e pesquisa sobre os clientes pelo vendedor. | IMPORTANTE |
-| FUNCIONAL | O sistema deverá registrar todas as atividades relacionadas á produção, incluindo o acompanhamento do progresso das etapas de produção, a quantidade de produtos fabricados e o uso de materiais e recursos. | IMPORTANTE |
-|  NÃO FUNCIONAL | O sistema poderá ser acessado via web. Permitindo a conexão de qualquer pessoa com dispotivo com internet e navegador web. | IMPORTANTE
-|  NÃO FUNCIONAL | O layout será de fácil entedimento, com a fonte das letras entre 20 e 24. | OPCIONAL |
-|  NÃO FUNCIONAL | Para logar no sistema o usuário tem que estar cadastrado pelo usuário admin. Na hora de guardar as informações a senha e criptografada. | ESSENCIAL |
-|  NÃO FUNCIONAL | O acesso as funcionalidades será pré determinado pelo usuário admin. | ESSENCIAL |
-|  NÃO FUNCIONAL | O sistema contará com o usuário admin e os usuários normais que terá acesso limitado pelo admin ao sistema. | ESSENCIAL |
+### **🛠 Tecnologias em Adoção (Stack em Evolução)**
 
+* **Backend:** Java 21, Spring Boot 3+  
+* **Banco de Dados:** MySQL (Refatorando a estrutura original CityGreen.sql)  
+* **Frontend:** HTML5/CSS3/JavaScript (Processo de integração com API)  
+* **Ambiente:** Linux Mint (Cinnamon), Fish Shell
 
+### **📈 Roadmap de Refatoração**
+
+* \[x\] Mapeamento das funcionalidades legadas e fluxo de dados.  
+* \[ \] Modelagem do novo banco de dados (Spring Data JPA).  
+* \[ \] Construção da camada de API REST.  
+* \[ \] Conectividade entre Frontend e Backend.  
+* \[ \] Implementação de autenticação e segurança.
