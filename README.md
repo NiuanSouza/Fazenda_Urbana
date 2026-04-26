@@ -26,7 +26,7 @@ O foco deste projeto no meu portfólio é demonstrar a transição de uma base d
 ### **📈 Roadmap de Refatoração**
 
 * \[x\] Mapeamento das funcionalidades legadas e fluxo de dados.  
-* \[ \] Modelagem do novo banco de dados (Spring Data JPA).  
+* \[x\] Modelagem do novo banco de dados (Spring Data JPA).  
 * \[ \] Construção da camada de API REST.  
 * \[ \] Conectividade entre Frontend e Backend.  
 * \[ \] Implementação de autenticação e segurança.
