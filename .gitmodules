@@ -1,3 +1,6 @@
 [submodule "server"]
 	path = Back-End
 	url = https://github.com/NiuanSouza/FAZENDA_URBANA-BACK.git
+[submodule "Front-End-Web"]
+	path = Front-End-Web
+	url = https://github.com/NiuanSouza/FAZENDA_URBANA_WEB.git
