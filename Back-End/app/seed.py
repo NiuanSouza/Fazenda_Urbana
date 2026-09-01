@@ -87,6 +87,7 @@ def seed():
             Fornecedor(cnpj="45678912000145", nome="Sementes do Brasil", razao_social="Sementes do Brasil Ltda", telefone1="31-98765-4321", email="contato@sementesbrasil.com", tipo="Fornecedor", inf_adicionais="Sementes orgânicas", endereco="Rua das Sementes", numero_endereco=789, bairro="Vila Verde", cidade="Belo Horizonte", estado="MG", cep="03456-789"),
         ]
         for f in fornecedores_data:
+            f.cnpj = f.cnpj.replace('.', '').replace('/', '').replace('-', '')
             db.add(f)
             forn_map[f.cnpj] = f
         db.flush()

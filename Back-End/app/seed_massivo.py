@@ -74,9 +74,10 @@ def seed_massivo():
             fornecedores = []
             for i in range(5):
                 status_f = StatusGeral.inativo if i < 2 else StatusGeral.ativo
+                cnpj_limpo = fake.cnpj().replace('.', '').replace('/', '').replace('-', '')
                 f = Fornecedor(
                     fazenda_id=fazenda.id,
-                    cnpj=fake.cnpj(),
+                    cnpj=cnpj_limpo,
                     nome=fake.company(),
                     email=fake.email(),
                     telefone1=fake.phone_number(),
