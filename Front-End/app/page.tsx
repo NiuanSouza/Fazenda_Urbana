@@ -60,7 +60,7 @@ export default function Login() {
             Bem-vindo à demonstração
           </h2>
           <p style={{ fontSize: "1.6rem", color: "var(--text-secondary)", marginBottom: "var(--space-4)", lineHeight: 1.6 }}>
-            Este sistema é um ambiente público de demonstração do SaaS <strong>Green City</strong>. Os dados contidos aqui são simulados e podem ser redefinidos automaticamente.
+            Este sistema é um ambiente público de teste e demonstração do SaaS <strong>Green City</strong>. Toda vez que o sistema é iniciado, <strong>o banco de dados é completamente resetado</strong> e todos os dados criados durante o uso são excluídos.
           </p>
           
           <div style={{ background: "rgba(255, 255, 255, 0.8)", padding: "var(--space-4)", borderRadius: "var(--radius-card)", border: "1px solid var(--border)", backdropFilter: "blur(5px)" }}>

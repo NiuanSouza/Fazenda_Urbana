@@ -2,16 +2,21 @@ import logging
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from contextlib import asynccontextmanager
 
 from app.database import Base, engine
 from app.middleware import RequestLoggingMiddleware
 from app.routes import auth, batches, customers, dashboard, energy, fazendas, inputs, irrigation, notifications, production, products, sales, sensors, suppliers, analytics, users
+from app.seed_massivo import seed_massivo
 
 # Logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 
-# Criar tabelas no banco de dados
-Base.metadata.create_all(bind=engine)
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    logging.info("Inicializando sistema e executando seed massivo (resetando banco de dados)...")
+    seed_massivo()
+    yield
 
 app = FastAPI(
     title="Fazenda Urbana API",
@@ -19,6 +24,7 @@ app = FastAPI(
     version="3.0.0",
     docs_url="/docs",
     redoc_url="/redoc",
+    lifespan=lifespan
 )
 
 app.add_middleware(
