@@ -136,7 +136,7 @@ class Fornecedor(Base):
 
     fazenda_id = Column(Integer, ForeignKey("fazenda.id"), nullable=True)
 
-    cnpj = Column(String(14), primary_key=True, index=True)
+    cnpj = Column(String(18), primary_key=True, index=True)
     nome = Column(String(255))
     razao_social = Column(String(255))
     telefone1 = Column(String(20))
@@ -166,7 +166,7 @@ class Insumo(Base):
     quantidade_insumo = Column(Integer, default=0)
     validade: Mapped[ValidadeInsumo] = Column(Enum(ValidadeInsumo), default=ValidadeInsumo.disponivel) # type: ignore
     data_validade: Mapped[date | None] = Column(Date, nullable=True) # type: ignore
-    fornecedor_cnpj = Column(String(14), ForeignKey("fornecedor.cnpj"))
+    fornecedor_cnpj = Column(String(18), ForeignKey("fornecedor.cnpj"))
 
     fornecedor = relationship("Fornecedor", back_populates="insumos")
     producoes = relationship("InsumoProducao", back_populates="insumo")
@@ -236,8 +236,8 @@ class Cliente(Base):
     nome = Column(String(255))
     telefone1 = Column(String(20))
     telefone2 = Column(String(20), nullable=True)
-    cnpj = Column(String(14), nullable=True)
-    cpf = Column(String(11), nullable=True)
+    cnpj = Column(String(18), nullable=True)
+    cpf = Column(String(14), nullable=True)
     ie = Column(String(9), nullable=True)
     email = Column(String(100))
     numero_endereco = Column(Integer, nullable=True)
