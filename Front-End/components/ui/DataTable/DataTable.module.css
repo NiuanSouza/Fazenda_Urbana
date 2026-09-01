@@ -1,0 +1,65 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.loadingWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skeletonRow {
+  margin-bottom: 4px;
+}
+
+.empty {
+  padding: 48px;
+  text-align: center;
+  color: var(--text-muted);
+  background: var(--bg-card);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+}
+
+.pageInfo {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.pageControls {
+  display: flex;
+  gap: 8px;
+}
+
+.pageBtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.pageBtn:hover:not(:disabled) {
+  background: var(--bg-hover);
+  border-color: var(--border-hover);
+}
+
+.pageBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

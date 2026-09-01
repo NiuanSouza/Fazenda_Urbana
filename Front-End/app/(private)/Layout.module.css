@@ -1,0 +1,55 @@
+.layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* Prevents flex items from overflowing */
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: var(--bg-primary);
+}
+
+.content {
+  flex: 1;
+  padding: 32px 40px;
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 24px 16px;
+    padding-top: 64px; /* Space for mobile btn */
+  }
+}
+
+.mobileMenuBtn {
+  display: none;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 50;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-card);
+}
+
+@media (max-width: 768px) {
+  .mobileMenuBtn {
+    display: flex;
+  }
+}
