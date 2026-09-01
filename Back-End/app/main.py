@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 
 from app.database import Base, engine
-from app.middleware import RequestLoggingMiddleware
+from app.middleware import RequestLoggingMiddleware, ExceptionHandlerMiddleware
 from app.routes import auth, batches, customers, dashboard, energy, fazendas, inputs, irrigation, notifications, production, products, sales, sensors, suppliers, analytics, users
 from app.seed_massivo import seed_massivo
 
@@ -14,8 +14,8 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(me
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    logging.info("Inicializando sistema e executando seed massivo (resetando banco de dados)...")
-    seed_massivo()
+    logging.info("Inicializando sistema...")
+    # seed_massivo() removido para não travar o boot e apagar dados em produção
     yield
 
 app = FastAPI(
@@ -34,6 +34,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+app.add_middleware(ExceptionHandlerMiddleware)
 app.add_middleware(RequestLoggingMiddleware)
 
 # Registrar roteadores
