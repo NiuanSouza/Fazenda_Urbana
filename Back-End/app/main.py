@@ -15,7 +15,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(me
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logging.info("Inicializando sistema...")
-    # seed_massivo() removido para não travar o boot e apagar dados em produção
+    seed_massivo()
     yield
 
 app = FastAPI(
