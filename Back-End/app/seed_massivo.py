@@ -4,6 +4,7 @@ Execute com:  python -m app.seed_massivo
 """
 import random
 import pandas as pd
+import logging
 from datetime import date, datetime, timedelta
 from faker import Faker
 
@@ -16,6 +17,10 @@ from app.models import (
     ValidadeInsumo, StatusProducao, StatusLote, StatusVenda, TipoCliente,
     ConsumoEnergia, Notificacao, StatusNotificacao
 )
+
+# Setup logging
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] SEED: %(message)s")
+logger = logging.getLogger("seed")
 
 fake = Faker('pt_BR')
 
@@ -34,12 +39,12 @@ def random_datetime_since_2024():
     return start_dt + timedelta(seconds=random_seconds)
 
 def seed_massivo():
-    print("Iniciando seed massivo desde 2024... Isso pode demorar alguns minutos.")
+    logger.info("Iniciando seed massivo desde 2024... Isso pode demorar alguns minutos.")
     Base.metadata.create_all(bind=engine)
     db = SessionLocal()
 
     try:
-        print("Limpando banco de dados existente...")
+        logger.info("Limpando banco de dados existente...")
         Base.metadata.drop_all(bind=engine)
         Base.metadata.create_all(bind=engine)
         
@@ -68,7 +73,7 @@ def seed_massivo():
         db.add(UsuarioFazenda(usuario_id=admin.id_usuario, fazenda_id=fazendas[2].id, role=RoleUsuario.admin))
         db.flush()
 
-        print("Gerando histórico de dados (2024 - Hoje) por Fazenda...")
+        logger.info("Gerando histórico de dados (2024 - Hoje) por Fazenda...")
         for fazenda in fazendas:
             # Fornecedores e Insumos (Histórico e Substituição)
             fornecedores = []
@@ -260,11 +265,11 @@ def seed_massivo():
             db.flush()
 
         db.commit()
-        print("✅ Seed massivo desde 2024 concluído com sucesso!")
+        logger.info("✅ Seed massivo desde 2024 concluído com sucesso!")
 
     except Exception as e:
         db.rollback()
-        print(f"❌ Erro no seed massivo: {e}")
+        logger.error(f"❌ Erro no seed massivo: {e}")
         raise
     finally:
         db.close()

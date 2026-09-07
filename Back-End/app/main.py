@@ -7,7 +7,6 @@ from contextlib import asynccontextmanager
 from app.database import Base, engine
 from app.middleware import RequestLoggingMiddleware, ExceptionHandlerMiddleware
 from app.routes import auth, batches, customers, dashboard, energy, fazendas, inputs, irrigation, notifications, production, products, sales, sensors, suppliers, analytics, users
-from app.seed_massivo import seed_massivo
 
 # Logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
@@ -15,7 +14,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(me
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logging.info("Inicializando sistema...")
-    seed_massivo()
+    # O seed massivo foi movido para o Start Command do Render
     yield
 
 app = FastAPI(
