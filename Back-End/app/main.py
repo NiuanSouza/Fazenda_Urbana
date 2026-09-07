@@ -27,6 +27,8 @@ app = FastAPI(
     lifespan=lifespan
 )
 
+app.add_middleware(ExceptionHandlerMiddleware)
+app.add_middleware(RequestLoggingMiddleware)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["https://fazenda-urbana-web.onrender.com", "http://localhost:3000"],
@@ -34,8 +36,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-app.add_middleware(ExceptionHandlerMiddleware)
-app.add_middleware(RequestLoggingMiddleware)
 
 # Registrar roteadores
 app.include_router(auth.router)
