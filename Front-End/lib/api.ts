@@ -49,7 +49,7 @@ async function apiFetch<T>(endpoint: string, options: RequestInit = {}): Promise
 
   if (response.status === 401) {
     localStorage.removeItem("token");
-    if (typeof window !== "undefined" && !window.location.pathname.includes("/login")) {
+    if (typeof window !== "undefined" && window.location.pathname !== "/" && !window.location.pathname.includes("/login")) {
       window.location.href = "/";
     }
   }
