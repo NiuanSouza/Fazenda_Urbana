@@ -3,7 +3,7 @@
 import logging
 import time
 
-from fastapi import Request
+from fastapi import Request, HTTPException
 from fastapi.responses import JSONResponse
 from starlette.middleware.base import BaseHTTPMiddleware
 
@@ -22,6 +22,8 @@ class ExceptionHandlerMiddleware(BaseHTTPMiddleware):
                 status_code=e.status_code,
                 content={"detail": e.detail, "status": "error"},
             )
+        except HTTPException as e:
+            raise e
         except Exception as e:
             logger.exception(f"Erro inesperado: {e}")
             return JSONResponse(
